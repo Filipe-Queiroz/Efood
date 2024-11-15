@@ -1,26 +1,17 @@
-import { Frase, Imagem, Logo, NavBar } from './styles'
-
-import bannerImg from '../assets/fundo.png'
-import logo from '../assets/logo.png'
-import { Link } from 'react-router-dom'
+import { HeaderContainer, HeaderLayout, HeaderText } from './styles'
+import Logo from '../../assets/images/logo.svg'
 
 const Header = () => (
-  <Imagem style={{ backgroundImage: `url(${bannerImg})` }}>
-    <NavBar>
-      <ul>
-        <Logo>
-          <Link to="/">
-            <img src={logo} alt="Logo Efood" />
-          </Link>
-        </Logo>
-      </ul>
-      <ul>
-        <Frase>
-          Viva experiências gastronômicas <br /> no conforto da sua casa
-        </Frase>
-      </ul>
-    </NavBar>
-  </Imagem>
+  <HeaderLayout>
+    <HeaderContainer>
+      <a href="http://localhost:3000">
+        <img src={Logo} alt="logo" />
+      </a>
+      <HeaderText>
+        Viva experiências gastronômicas <br /> no conforto da sua casa
+      </HeaderText>
+    </HeaderContainer>
+  </HeaderLayout>
 )
 
 export default Header

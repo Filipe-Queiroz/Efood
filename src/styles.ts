@@ -1,25 +1,37 @@
-import { create } from 'domain'
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
-export const GlobalCss = createGlobalStyle`
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box
-    list-style: none;
-    text-decoration: none;
+export const colors = {
+  white: '#fff',
+  white_bg: '#FFF8F2',
+  beige: '#FFEBD9',
+  red: '#E66767'
+}
+
+export const GlobalStyle = createGlobalStyle`
+ *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+      list-style: none;
+      text-decoration: none;
+      overflow-x: hidden;
+  }
+
+  body{
+      background: ${colors.white_bg};
+      color: ${colors.red};
   }
 
   .container {
-    max-width: 1024px;
-    width: 100%;
-    margin: 0 auto;
-  }
+  max-width: 1024px;
+  margin: 0 auto;
+  width: 100%;
+}
+  `
 
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 24px;
-    margin-top: 40px;
-  }
+export const Container = styled.div`
+  max-width: 1024px;
+  margin: 0 auto;
+  width: 100%;
 `
