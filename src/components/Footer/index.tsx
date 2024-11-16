@@ -1,37 +1,38 @@
-import {
-  FooterContainer,
-  FooterLayout,
-  FooterText,
-  Footerlink,
-  Footerlinks
-} from './styles'
-import Logo from '../../assets/images/logo.svg'
-import insta from '../../assets/images/insta.svg'
-import face from '../../assets/images/face.svg'
-import twitter from '../../assets/images/twitter.svg'
+import logo from '../../assets/images/logo.png'
+import instagram from '../../assets/images/instagram.png'
+import twitter from '../../assets/images/twitter.png'
+import facebook from '../../assets/images/facebook.png'
+
+import { Container, Content, ImgLogo, Social, Text } from './styles'
 
 const Footer = () => (
-  <FooterLayout>
-    <FooterContainer>
-      <img src={Logo} alt="logo" />
-      <Footerlinks>
-        <Footerlink>
-          <img src={insta} alt="logo" />
-        </Footerlink>
-        <Footerlink>
-          <img src={face} alt="logo" />
-        </Footerlink>
-        <Footerlink>
-          <img src={twitter} alt="logo" />
-        </Footerlink>
-      </Footerlinks>
-      <FooterText>
+  <Container>
+    <Content>
+      <ImgLogo src={logo} alt="" />
+      <Social>
+        <li>
+          <a href="#">
+            <img src={instagram} alt="Instagram" />
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src={facebook} alt="Facebook" />
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src={twitter} alt="Twitter" />
+          </a>
+        </li>
+      </Social>
+      <Text>
         A efood é uma plataforma para divulgação de estabelecimentos, a
-        responsabilidade pela entrega, qualidade <br /> dos produtos é toda do
+        responsabilidade pela entrega, qualidade dos produtos é toda do
         estabelecimento contratado.
-      </FooterText>
-    </FooterContainer>
-  </FooterLayout>
+      </Text>
+    </Content>
+  </Container>
 )
 
 export default Footer

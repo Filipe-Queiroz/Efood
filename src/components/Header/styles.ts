@@ -1,28 +1,40 @@
 import styled from 'styled-components'
-import Vector from '../../assets/images/Vector.svg'
 
-export const HeaderLayout = styled.header`
-  top: 0px;
-  background-image: url(${Vector});
-  max-width: 2032px;
-  width: 100%;
-  height: 384px;
-  background-color: #e667670d;
-  overflow-y: hidden;
+import { Props } from '.'
+import { colors } from '../../styles'
 
-  img {
-    margin-top: 64px;
+export const Container = styled.header<Props>`
+  padding: ${(props: Props) =>
+    props.content === 'Home' ? '40px 0' : '40px 0 0 0'};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 80px;
+
+  .content {
+    max-width: 539px;
   }
 `
 
-export const HeaderText = styled.p`
-  font-size: 36px;
-  font-style: normal;
-  font-weight: 900;
-  line-height: normal;
-  margin-top: 140px;
-  margin-bottom: 40px;
-`
-export const HeaderContainer = styled.div`
+export const Title = styled.h1<Props>`
   text-align: center;
+  margin-bottom: ${(props: Props) =>
+    props.content === 'Home' ? '140px' : '0'};
+`
+
+export const LinksContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 60px;
+
+  ${Title} {
+    margin-left: 340px;
+    margin-right: 190px;
+  }
+`
+
+export const HLink = styled.a`
+  color: ${colors.principal};
+  font-weight: 900;
+  font-size: 18px;
 `

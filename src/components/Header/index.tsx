@@ -1,17 +1,51 @@
-import { HeaderContainer, HeaderLayout, HeaderText } from './styles'
-import Logo from '../../assets/images/logo.svg'
+import { Link } from 'react-router-dom'
+import fundoImg from '../../assets/images/fundo.png'
+import logo from '../../assets/images/logo.png'
+import Banner from '../Banner'
+import { Container, Title, LinksContainer, HLink } from './styles'
 
-const Header = () => (
-  <HeaderLayout>
-    <HeaderContainer>
-      <a href="http://localhost:3000">
-        <img src={Logo} alt="logo" />
-      </a>
-      <HeaderText>
-        Viva experiências gastronômicas <br /> no conforto da sua casa
-      </HeaderText>
-    </HeaderContainer>
-  </HeaderLayout>
-)
+export type Props = {
+  content?: 'Home' | 'Saiba mais'
+}
+
+const Header = ({ content }: Props) => {
+  if (content === 'Home') {
+    return (
+      <Container
+        content={content}
+        style={{ backgroundImage: `url(${fundoImg})` }}
+      >
+        <div className="content">
+          <Title>
+            <Link to="/">
+              <img src={logo} alt="EFood" />
+            </Link>
+          </Title>
+          <Banner banner="Home" />
+        </div>
+      </Container>
+    )
+  }
+
+  return (
+    <Container
+      content={content}
+      style={{ backgroundImage: `url(${fundoImg})` }}
+    >
+      <div className="container">
+        <LinksContainer>
+          <HLink href="#">Restaurantes</HLink>
+          <Title>
+            <Link to="/">
+              <img src={logo} alt="EFood" />
+            </Link>
+          </Title>
+          <HLink href="#">0 produto(s) no carrinho</HLink>
+        </LinksContainer>
+      </div>
+      <Banner banner="Saiba mais" />
+    </Container>
+  )
+}
 
 export default Header
