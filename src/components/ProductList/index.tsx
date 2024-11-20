@@ -13,12 +13,30 @@ import {
   Detalhes
 } from './styles'
 import close from '../../assets/images/close.png'
+import { useDispatch } from 'react-redux'
+import { add, open } from '../../store/reducers/cart'
 
 type Props = {
   comida: FoodList
 }
 
+export type Prato = {
+  foto: string
+  preco: number
+  id: number
+  nome: string
+  descricao: string
+  porcao: string
+}
+
 const ProductList = ({ comida }: Props) => {
+  const dispatch = useDispatch()
+
+  const addToCart = (plate: any) => {
+    dispatch(add(plate))
+    dispatch(open())
+  }
+
   const [modal, setModal] = useState({
     isVisible: false,
     nome: '',
@@ -91,9 +109,21 @@ const ProductList = ({ comida }: Props) => {
                       <h2>{modal.nome}</h2>
                       <p>{modal.descricao}</p>
                       <p>Serve: de {modal.porcao}</p>
-                      <button>
-                        Adicionar ao carrinho - R$
-                        {modal.preco.toFixed(2).replace('.', ',')}
+                      <button
+                        onClick={() => {
+                          addToCart(modal)
+                          setModal({
+                            isVisible: false,
+                            nome: '',
+                            preco: 0,
+                            descricao: '',
+                            porcao: '',
+                            id: 0,
+                            foto: ''
+                          })
+                        }}
+                      >
+                        Adicionar ao carrinho - R${modal.preco}
                       </button>
                     </div>
                   </Detalhes>
