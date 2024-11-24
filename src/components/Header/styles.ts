@@ -34,6 +34,7 @@ export const LinksContainer = styled.div`
 `
 
 export const HLink = styled.a`
+  cursor: pointer;
   color: ${colors.principal};
   font-weight: 900;
   font-size: 18px;

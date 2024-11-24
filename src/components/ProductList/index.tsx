@@ -10,7 +10,8 @@ import {
   Modal,
   ModalContent,
   Close,
-  Detalhes
+  Detalhes,
+  formataPreco
 } from './styles'
 import close from '../../assets/images/close.png'
 import { useDispatch } from 'react-redux'
@@ -123,7 +124,7 @@ const ProductList = ({ comida }: Props) => {
                           })
                         }}
                       >
-                        Adicionar ao carrinho - R${modal.preco}
+                        Adicionar ao carrinho - {formataPreco(modal.preco)}
                       </button>
                     </div>
                   </Detalhes>

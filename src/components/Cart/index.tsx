@@ -14,6 +14,7 @@ import {
 } from './styles'
 import { RootReducer } from '../../store'
 import { close, remove } from '../../store/reducers/cart'
+import { formataPreco } from '../ProductList/styles'
 
 const Cart = () => {
   const dispatch = useDispatch()
@@ -46,7 +47,7 @@ const Cart = () => {
                 <img src={item.foto} alt="" />
                 <div>
                   <Title>{item.nome}</Title>
-                  <Price>R${item.preco}</Price>
+                  <Price>{formataPreco(item.preco)}</Price>
                   <Trash onClick={() => removeItem(item.id)} />
                 </div>
               </Card>
@@ -55,7 +56,7 @@ const Cart = () => {
         </ul>
         <TotalPrice>
           Valor total
-          <span>R$ {getTotalPrices()}</span>
+          <span>{formataPreco(getTotalPrices())}</span>
         </TotalPrice>
         <BuyButton>Continuar com a entrega</BuyButton>
       </Sidebar>
