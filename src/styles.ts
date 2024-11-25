@@ -7,6 +7,13 @@ export const colors = {
   cfooter: '#FFEBD9'
 }
 
+export const breakpoints = {
+  desktop: '1024px',
+  tablet: '821px',
+  mobile: '430px',
+  iphone11: '414px'
+}
+
 const GlobalStyle = createGlobalStyle`
     *{
         margin: 0;

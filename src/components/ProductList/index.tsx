@@ -10,12 +10,12 @@ import {
   Modal,
   ModalContent,
   Close,
-  Detalhes,
-  formataPreco
+  Detalhes
 } from './styles'
 import close from '../../assets/images/close.png'
 import { useDispatch } from 'react-redux'
 import { add, open } from '../../store/reducers/cart'
+import { priceFormat } from '../../Utils'
 
 type Props = {
   comida: FoodList
@@ -30,12 +30,23 @@ export type Prato = {
   porcao: string
 }
 
+type ModalState = {
+  isVisible: boolean
+  nome: string
+  preco: number
+  descricao: string
+  porcao: string
+  id: number
+  foto: string
+}
+
 const ProductList = ({ comida }: Props) => {
   const dispatch = useDispatch()
 
-  const addToCart = (plate: any) => {
+  const addToCart = (plate: ModalState) => {
     dispatch(add(plate))
     dispatch(open())
+    console.log(dispatch(open()))
   }
 
   const [modal, setModal] = useState({
@@ -124,7 +135,7 @@ const ProductList = ({ comida }: Props) => {
                           })
                         }}
                       >
-                        Adicionar ao carrinho - {formataPreco(modal.preco)}
+                        Adicionar ao carrinho - {priceFormat(modal.preco)}
                       </button>
                     </div>
                   </Detalhes>
